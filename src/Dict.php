@@ -9,9 +9,9 @@
 namespace Zeroleaf\Kingsoft;
 
 use Zeroleaf\Kingsoft\Dict\QueryRequest;
-use Zeroleaf\Kingsoft\Dict\QueryResponse;
+use Zeroleaf\Kingsoft\Dict\QueryResponse as Word;
 use Zeroleaf\Kingsoft\Dict\SuggestionRequest;
-use Zeroleaf\Kingsoft\Dict\SuggestionResponse;
+use Zeroleaf\Kingsoft\Dict\SuggestionResponse as Suggestion;
 use Zeroleaf\Kingsoft\Request\GuzzleHttpClient;
 use Zeroleaf\Kingsoft\Request\HttpClientInterface;
 
@@ -64,7 +64,7 @@ final class Dict
      * @param array  $fields  结果中需要包含的字段
      * @param array  $options 请求选项
      *
-     * @return QueryResponse
+     * @return Word
      */
     public function query($word, $fields = null, $options = [])
     {
@@ -84,7 +84,7 @@ final class Dict
      * @param int    $isNeedMean 是否包含释义
      * @param array  $options    请求选项
      *
-     * @return SuggestionResponse
+     * @return Suggestion
      */
     public function suggest($word, $nums = 10, $isNeedMean = 1, $options = [])
     {
