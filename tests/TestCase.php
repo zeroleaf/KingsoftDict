@@ -12,19 +12,13 @@ use Zeroleaf\Kingsoft\Request\GuzzleHttpClient;
 use Zeroleaf\Kingsoft\Request\HttpClientInterface;
 
 /**
- * Class TestCase
+ * 测试基类.
+ *
+ * - RequestTest 类, 主要测试请求参数等是否生效
+ * - ResponseTest 类, 主要测试相应数据格式是否符合预期
  *
  * @package Zeroleaf\Test\Kingsoft
  */
 class TestCase extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var HttpClientInterface
-     */
-    protected $client;
-
-    public function setup()
-    {
-        $this->client = new GuzzleHttpClient();
-    }
 }

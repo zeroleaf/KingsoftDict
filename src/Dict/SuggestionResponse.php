@@ -43,6 +43,6 @@ class SuggestionResponse extends DictResponse
      */
     public function message()
     {
-        return $this->dataGet('message', []);
+        return (array) $this->dataGet('message', []);
     }
 }

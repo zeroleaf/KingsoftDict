@@ -8,7 +8,6 @@
 
 namespace Zeroleaf\Kingsoft\Dict;
 
-
 use Zeroleaf\Kingsoft\Request\ResponseBase;
 
 /**

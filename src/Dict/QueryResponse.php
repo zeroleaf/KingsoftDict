@@ -227,7 +227,7 @@ class QueryResponse extends DictResponse
      */
     public function sentences()
     {
-        return $this->dataGet('sentence');
+        return $this->dataGet('sentence', []);
     }
 
     // netmean
@@ -239,7 +239,7 @@ class QueryResponse extends DictResponse
      */
     public function netmean()
     {
-        return $this->dataGet('netmean');
+        return $this->dataGet('netmean', []);
     }
 
     // phrase
@@ -284,7 +284,7 @@ class QueryResponse extends DictResponse
      */
     public function synonym()
     {
-        return $this->dataGet('synonym');
+        return $this->dataGet('synonym', []);
     }
 
     /**
@@ -294,7 +294,7 @@ class QueryResponse extends DictResponse
      */
     public function antonym()
     {
-        return $this->dataGet('antonym');
+        return $this->dataGet('antonym', []);
     }
 
     /**
@@ -304,7 +304,7 @@ class QueryResponse extends DictResponse
      */
     public function encyclopedia()
     {
-        return $this->dataGet('encyclopedia');
+        return $this->dataGet('encyclopedia', []);
     }
 
     /**
@@ -314,7 +314,7 @@ class QueryResponse extends DictResponse
      */
     public function collins()
     {
-        return $this->dataGet('collins');
+        return $this->dataGet('collins', []);
     }
 
     /**
@@ -324,7 +324,7 @@ class QueryResponse extends DictResponse
      */
     public function eeMean()
     {
-        return $this->dataGet('ee_mean');
+        return $this->dataGet('ee_mean', []);
     }
 
     /**
@@ -334,7 +334,7 @@ class QueryResponse extends DictResponse
      */
     public function authSentence()
     {
-        return $this->dataGet('auth_sentence');
+        return $this->dataGet('auth_sentence', []);
     }
 
     /**
@@ -344,7 +344,7 @@ class QueryResponse extends DictResponse
      */
     public function bidec()
     {
-        return $this->dataGet('bidec');
+        return $this->dataGet('bidec', []);
     }
 
     /**
@@ -354,6 +354,6 @@ class QueryResponse extends DictResponse
      */
     public function jushi()
     {
-        return $this->dataGet('jushi');
+        return $this->dataGet('jushi', []);
     }
 }

@@ -9,17 +9,14 @@
 namespace Zeroleaf\Test\Kingsoft\Dict;
 
 use Zeroleaf\Kingsoft\Dict\QueryResponse;
-use Zeroleaf\Test\Kingsoft\TestCase;
 
 /**
  * Class QueryResponseTest
  *
  * @package Zeroleaf\Test\Kingsoft\Dict
  */
-class QueryResponseTest extends TestCase
+class QueryResponseTest extends TestCaseBase
 {
-    use QueryTrait;
-
     /**
      * 单词 go 的响应测试.
      *
@@ -28,7 +25,7 @@ class QueryResponseTest extends TestCase
     public function testResponseGo()
     {
         /** @var QueryResponse $response */
-        $response = $this->query('go');
+        $response = $this->dict->query('go');
 
         $this->assertEquals('go', $response->name());
 

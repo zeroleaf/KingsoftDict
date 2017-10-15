@@ -20,7 +20,7 @@ abstract class ResponseBase implements Response
     /**
      * Decoded original response body text.
      *
-     * @var array
+     * @var array|mixed
      */
     protected $data;
 
@@ -72,6 +72,20 @@ abstract class ResponseBase implements Response
     public function dataGet($key, $default = null)
     {
         return data_get($this->data, $key, $default);
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return bool
+     */
+    public function __isset($name)
+    {
+        if (is_array($this->data)) {
+            return array_has($this->data, $name);
+        }
+
+        return object_get($this->data, $name) !== null;
     }
 
     /**

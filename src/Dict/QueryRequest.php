@@ -61,31 +61,43 @@ class QueryRequest extends Request
             'c'    => 'search',
             'a'    => 'getWordMean',
             'word' => $word,
-            'list' => implode(self::LIST_DELIMITER, [
-                self::LIST_BASE_INFO,
-                self::LIST_TRADE_MEANS,
-                self::LIST_SENTENCE,
-                self::LIST_NETMEAN,
-                self::LIST_SYNONYM,
-                self::LIST_ANTONYM,
-                self::LIST_PHRASE,
-                self::LIST_ENCYCLOPEDIA,
-                self::LIST_CET_FOUR,
-            ]),
+        ]);
+
+        // 结果默认包含字段
+        $this->fields([
+            self::LIST_BASE_INFO,
+            self::LIST_TRADE_MEANS,
+            self::LIST_SENTENCE,
+            self::LIST_NETMEAN,
+            self::LIST_SYNONYM,
+            self::LIST_ANTONYM,
+            self::LIST_PHRASE,
+            self::LIST_ENCYCLOPEDIA,
+            self::LIST_CET_FOUR,
         ]);
     }
 
     /**
-     * @param int|array $fields
-     *
-     * @return $this
+     * 所有可用的字段.
      */
-    public function with($fields)
+    public function allFields()
     {
-        return $this->setOption('query.list', implode(',',
-                array_unique(array_merge(explode(',', $this->getOptionKey('query.list')), (array) $fields))
-            )
-        );
+        return [
+            self::LIST_BASE_INFO,
+            self::LIST_COLLINS,
+            self::LIST_EE_MEAN,
+            self::LIST_TRADE_MEANS,
+            self::LIST_SENTENCE,
+            self::LIST_NETMEAN,
+            self::LIST_AUTH_SENTENCE,
+            self::LIST_SYNONYM,
+            self::LIST_ANTONYM,
+            self::LIST_PHRASE,
+            self::LIST_ENCYCLOPEDIA,
+            self::LIST_CET_FOUR,
+            self::LIST_BIDEC,
+            self::LIST_JUSHI,
+        ];
     }
 
     /**
@@ -93,12 +105,13 @@ class QueryRequest extends Request
      *
      * @return $this
      */
-    public function without($fields)
+    public function fields($fields)
     {
-        return $this->setOption('query.list', implode(',',
-                array_unique(array_diff(explode(',', $this->getOptionKey('query.list')), (array) $fields))
+        return $this->setOption('query.list', implode(self::LIST_DELIMITER,
+            array_intersect(
+                $this->allFields(), (array) $fields
             )
-        );
+        ));
     }
 
     /**
